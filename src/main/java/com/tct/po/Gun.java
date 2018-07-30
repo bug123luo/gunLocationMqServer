@@ -13,7 +13,11 @@ public class Gun {
 
     private Integer warehouseId;
 
+    private Integer bulletNumber;
+
     private Integer state;
+
+    private Integer realTimeState;
 
     private Date createTime;
 
@@ -61,12 +65,28 @@ public class Gun {
         this.warehouseId = warehouseId;
     }
 
+    public Integer getBulletNumber() {
+        return bulletNumber;
+    }
+
+    public void setBulletNumber(Integer bulletNumber) {
+        this.bulletNumber = bulletNumber;
+    }
+
     public Integer getState() {
         return state;
     }
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    public Integer getRealTimeState() {
+        return realTimeState;
+    }
+
+    public void setRealTimeState(Integer realTimeState) {
+        this.realTimeState = realTimeState;
     }
 
     public Date getCreateTime() {

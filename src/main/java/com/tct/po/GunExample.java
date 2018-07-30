@@ -435,6 +435,66 @@ public class GunExample {
             return (Criteria) this;
         }
 
+        public Criteria andBulletNumberIsNull() {
+            addCriterion("bullet_number is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBulletNumberIsNotNull() {
+            addCriterion("bullet_number is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBulletNumberEqualTo(Integer value) {
+            addCriterion("bullet_number =", value, "bulletNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andBulletNumberNotEqualTo(Integer value) {
+            addCriterion("bullet_number <>", value, "bulletNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andBulletNumberGreaterThan(Integer value) {
+            addCriterion("bullet_number >", value, "bulletNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andBulletNumberGreaterThanOrEqualTo(Integer value) {
+            addCriterion("bullet_number >=", value, "bulletNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andBulletNumberLessThan(Integer value) {
+            addCriterion("bullet_number <", value, "bulletNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andBulletNumberLessThanOrEqualTo(Integer value) {
+            addCriterion("bullet_number <=", value, "bulletNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andBulletNumberIn(List<Integer> values) {
+            addCriterion("bullet_number in", values, "bulletNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andBulletNumberNotIn(List<Integer> values) {
+            addCriterion("bullet_number not in", values, "bulletNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andBulletNumberBetween(Integer value1, Integer value2) {
+            addCriterion("bullet_number between", value1, value2, "bulletNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andBulletNumberNotBetween(Integer value1, Integer value2) {
+            addCriterion("bullet_number not between", value1, value2, "bulletNumber");
+            return (Criteria) this;
+        }
+
         public Criteria andStateIsNull() {
             addCriterion("state is null");
             return (Criteria) this;
@@ -492,6 +552,66 @@ public class GunExample {
 
         public Criteria andStateNotBetween(Integer value1, Integer value2) {
             addCriterion("state not between", value1, value2, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealTimeStateIsNull() {
+            addCriterion("real_time_state is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealTimeStateIsNotNull() {
+            addCriterion("real_time_state is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealTimeStateEqualTo(Integer value) {
+            addCriterion("real_time_state =", value, "realTimeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealTimeStateNotEqualTo(Integer value) {
+            addCriterion("real_time_state <>", value, "realTimeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealTimeStateGreaterThan(Integer value) {
+            addCriterion("real_time_state >", value, "realTimeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealTimeStateGreaterThanOrEqualTo(Integer value) {
+            addCriterion("real_time_state >=", value, "realTimeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealTimeStateLessThan(Integer value) {
+            addCriterion("real_time_state <", value, "realTimeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealTimeStateLessThanOrEqualTo(Integer value) {
+            addCriterion("real_time_state <=", value, "realTimeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealTimeStateIn(List<Integer> values) {
+            addCriterion("real_time_state in", values, "realTimeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealTimeStateNotIn(List<Integer> values) {
+            addCriterion("real_time_state not in", values, "realTimeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealTimeStateBetween(Integer value1, Integer value2) {
+            addCriterion("real_time_state between", value1, value2, "realTimeState");
+            return (Criteria) this;
+        }
+
+        public Criteria andRealTimeStateNotBetween(Integer value1, Integer value2) {
+            addCriterion("real_time_state not between", value1, value2, "realTimeState");
             return (Criteria) this;
         }
 

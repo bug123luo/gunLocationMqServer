@@ -16,6 +16,10 @@ import javax.jms.TextMessage;
 
 import com.tct.cache.UnSendReplyMessageCache;
 
+import lombok.extern.slf4j.Slf4j;
+
+
+@Slf4j
 public class ProducerThread extends Thread {
 
 	private ConnectionFactory cf=null;

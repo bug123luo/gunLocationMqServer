@@ -13,8 +13,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.tct.cache.UserOnlineQueueCache;
-import com.tct.thread.ConsumerThread;
+import com.tct.thread.GateWayConsumerThread;
 import com.tct.thread.ProducerThread;
+import com.tct.thread.WebConsumerThread;
 
 public class GunLocationMQServer {
 
@@ -28,11 +29,15 @@ public class GunLocationMQServer {
 		paraMap.put("connectionFactory", cf);
 		paraMap.put("queneName", "InputQueue");
 		
-		ProducerThread producerThread =new ProducerThread(paraMap,"push");
+		ProducerThread producerThread =new ProducerThread(paraMap,"producer");
 		producerThread.start();
 		
-		ConsumerThread loginHandleThread=new ConsumerThread(paraMap,"login");
-		loginHandleThread.start();
+		GateWayConsumerThread gateWayConsumerThread=new GateWayConsumerThread(paraMap,"gateWayConsumer");
+		gateWayConsumerThread.start();
+		
+		
+		paraMap.put("queneName","WebQueue");
+		WebConsumerThread webConsumerThread=new WebConsumerThread(paraMap,"webConsumer");
 		
 	}
 
