@@ -1,11 +1,10 @@
 package com.tct.po;
 
 public class ServerMessageSerialnumber {
-	
     private Integer id;
 
     private String serialnumber;
-       
+
     public Integer getId() {
         return id;
     }

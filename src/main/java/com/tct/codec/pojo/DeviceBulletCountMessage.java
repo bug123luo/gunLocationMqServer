@@ -1,15 +1,17 @@
 package com.tct.codec.pojo;
 
 public class DeviceBulletCountMessage extends SimpleMessage {
-	private DeviceBulletCountBody deviceBulletCountBody;
+	private DeviceBulletCountBody messageBody;
 
-	public DeviceBulletCountBody getDeviceBulletCountBody() {
-		return deviceBulletCountBody;
+	public DeviceBulletCountBody getMessageBody() {
+		return messageBody;
 	}
 
-	public void setDeviceBulletCountBody(DeviceBulletCountBody deviceBulletCountBody) {
-		this.deviceBulletCountBody = deviceBulletCountBody;
+	public void setMessageBody(DeviceBulletCountBody messageBody) {
+		this.messageBody = messageBody;
 	}
+
+
 	
 	
 }

@@ -2,15 +2,17 @@ package com.tct.codec.pojo;
 
 public class ClientOffLocationWarningMessage extends SimpleMessage {
 	
-	private ClientOffLocationWarningBody clientOffLocationWarningBody;
+	private ClientOffLocationWarningBody messageBody;
 
-	public ClientOffLocationWarningBody getClientOffLocationWarningBody() {
-		return clientOffLocationWarningBody;
+	public ClientOffLocationWarningBody getMessageBody() {
+		return messageBody;
 	}
 
-	public void setClientOffLocationWarningBody(ClientOffLocationWarningBody clientOffLocationWarningBody) {
-		this.clientOffLocationWarningBody = clientOffLocationWarningBody;
+	public void setMessageBody(ClientOffLocationWarningBody messageBody) {
+		this.messageBody = messageBody;
 	}
+
+
 
 
 	

@@ -2,15 +2,17 @@ package com.tct.codec.pojo;
 
 public class ServerOffLocationSearchReplyMessage extends SimpleMessage {
 	
-	private ServerOffLocationSearchBody serverOffLocationSearchBody;
+	private ServerOffLocationSearchBody messageBody;
 
-	public ServerOffLocationSearchBody getServerOffLocationSearchBody() {
-		return serverOffLocationSearchBody;
+	public ServerOffLocationSearchBody getMessageBody() {
+		return messageBody;
 	}
 
-	public void setServerOffLocationSearchBody(ServerOffLocationSearchBody serverOffLocationSearchBody) {
-		this.serverOffLocationSearchBody = serverOffLocationSearchBody;
+	public void setMessageBody(ServerOffLocationSearchBody messageBody) {
+		this.messageBody = messageBody;
 	}
+
+
 	
 	
 }

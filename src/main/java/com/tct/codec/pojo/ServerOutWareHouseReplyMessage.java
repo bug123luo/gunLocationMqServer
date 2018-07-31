@@ -2,15 +2,13 @@ package com.tct.codec.pojo;
 
 public class ServerOutWareHouseReplyMessage extends SimpleMessage{
 	
-	private ServerOutWareHouseReplyBody serverOutWareHouseReplyBody;
+	private ServerOutWareHouseReplyBody messageBody;
 
-	public ServerOutWareHouseReplyBody getServerOutWareHouseReplyBody() {
-		return serverOutWareHouseReplyBody;
+	public ServerOutWareHouseReplyBody getMessageBody() {
+		return messageBody;
 	}
 
-	public void setServerOutWareHouseReplyBody(ServerOutWareHouseReplyBody serverOutWareHouseReplyBody) {
-		this.serverOutWareHouseReplyBody = serverOutWareHouseReplyBody;
+	public void setMessageBody(ServerOutWareHouseReplyBody messageBody) {
+		this.messageBody = messageBody;
 	}
-	
-	
 }

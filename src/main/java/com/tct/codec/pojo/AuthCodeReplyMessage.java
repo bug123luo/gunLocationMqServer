@@ -2,15 +2,17 @@ package com.tct.codec.pojo;
 
 public class AuthCodeReplyMessage extends SimpleMessage{
 
-	private AuthCodeReplyBody authCodeReplyBody;
+	private AuthCodeReplyBody messageBody;
 
-	public AuthCodeReplyBody getAuthCodeReplyBody() {
-		return authCodeReplyBody;
+	public AuthCodeReplyBody getMessageBody() {
+		return messageBody;
 	}
 
-	public void setAuthCodeReplyBody(AuthCodeReplyBody authCodeReplyBody) {
-		this.authCodeReplyBody = authCodeReplyBody;
+	public void setMessageBody(AuthCodeReplyBody messageBody) {
+		this.messageBody = messageBody;
 	}
+
+
 	
 	
 }

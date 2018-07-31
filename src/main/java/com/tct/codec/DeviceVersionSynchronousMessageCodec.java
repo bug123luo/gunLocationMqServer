@@ -12,7 +12,7 @@ public class DeviceVersionSynchronousMessageCodec implements MessageCodec {
 		
 		DeviceVersionSynchronousMessage deviceVersionSynchronousMessage =  new DeviceVersionSynchronousMessage();
 		
-		deviceVersionSynchronousMessage.setDeviceVersionSynchronousBody(json.getObject("messageBody",DeviceVersionSynchronousBody.class));
+		deviceVersionSynchronousMessage.setMessageBody(json.getObject("messageBody",DeviceVersionSynchronousBody.class));
 		deviceVersionSynchronousMessage.setServiceType(json.getString("serviceType"));
 		deviceVersionSynchronousMessage.setFormatVersion(json.getString("formatVersion"));
 		deviceVersionSynchronousMessage.setDeviceType(json.getInteger("deviceType"));

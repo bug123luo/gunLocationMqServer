@@ -1,15 +1,17 @@
 package com.tct.codec.pojo;
 
 public class DeviceVersionSynchronousReplyMessage extends SimpleMessage{
-	private DeviceVersionSynchronousReplyBody deviceVersionSynchronousBody;
+	private DeviceVersionSynchronousReplyBody messageBody;
 
-	public DeviceVersionSynchronousReplyBody getDeviceVersionSynchronousBody() {
-		return deviceVersionSynchronousBody;
+	public DeviceVersionSynchronousReplyBody getMessageBody() {
+		return messageBody;
 	}
 
-	public void setDeviceVersionSynchronousBody(DeviceVersionSynchronousReplyBody deviceVersionSynchronousBody) {
-		this.deviceVersionSynchronousBody = deviceVersionSynchronousBody;
+	public void setMessageBody(DeviceVersionSynchronousReplyBody messageBody) {
+		this.messageBody = messageBody;
 	}
+
+
 	
 	
 }

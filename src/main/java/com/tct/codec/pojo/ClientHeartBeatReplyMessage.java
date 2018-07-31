@@ -2,16 +2,14 @@ package com.tct.codec.pojo;
 
 public class ClientHeartBeatReplyMessage extends SimpleMessage {
 	
-	private ClientHeartBeatReplyBody clientHeartBeatReplyBody;
+	private ClientHeartBeatReplyBody messageBody;
 
-	public ClientHeartBeatReplyBody getClientHeartBeatReplyBody() {
-		return clientHeartBeatReplyBody;
+	public ClientHeartBeatReplyBody getMessageBody() {
+		return messageBody;
 	}
 
-	public void setClientHeartBeatReplyBody(ClientHeartBeatReplyBody clientHeartBeatReplyBody) {
-		this.clientHeartBeatReplyBody = clientHeartBeatReplyBody;
+	public void setMessageBody(ClientHeartBeatReplyBody messageBody) {
+		this.messageBody = messageBody;
 	}
-	
-	
-	
+
 }

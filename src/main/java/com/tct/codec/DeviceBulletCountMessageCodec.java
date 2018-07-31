@@ -11,7 +11,7 @@ public class DeviceBulletCountMessageCodec implements MessageCodec {
 		JSONObject json= JSONObject.parseObject(inMsg);
 		
 		DeviceBulletCountMessage deviceBulletCountMessage =  new DeviceBulletCountMessage();
-		deviceBulletCountMessage.setDeviceBulletCountBody(json.getObject("messageBody",DeviceBulletCountBody.class));
+		deviceBulletCountMessage.setMessageBody(json.getObject("messageBody",DeviceBulletCountBody.class));
 		deviceBulletCountMessage.setServiceType(json.getString("serviceType"));
 		deviceBulletCountMessage.setFormatVersion(json.getString("formatVersion"));
 		deviceBulletCountMessage.setDeviceType(json.getInteger("deviceType"));

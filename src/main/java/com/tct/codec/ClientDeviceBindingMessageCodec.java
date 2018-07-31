@@ -17,7 +17,7 @@ public class ClientDeviceBindingMessageCodec implements MessageCodec {
 		clientDeviceBindingMessage.setSendTime(json.getString("sendTime"));
 		clientDeviceBindingMessage.setSerialNumber(json.getString("serialNumber"));
 		clientDeviceBindingMessage.setServiceType(json.getString("serviceType"));
-		clientDeviceBindingMessage.setClientDeviceBindingBody(json.getObject("messageBody",ClientDeviceBindingBody.class));
+		clientDeviceBindingMessage.setMessageBody(json.getObject("messageBody",ClientDeviceBindingBody.class));
 		return clientDeviceBindingMessage;
 	}
 

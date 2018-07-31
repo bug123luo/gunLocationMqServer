@@ -2,15 +2,17 @@ package com.tct.codec.pojo;
 
 public class ClientDeviceBindingReplyMessage extends SimpleMessage{
 	
-	private ClientDeviceBindingReplyBody clientDeviceBindingReplyBody;
+	private ClientDeviceBindingReplyBody messageBody;
 
-	public ClientDeviceBindingReplyBody getClientDeviceBindingReplyBody() {
-		return clientDeviceBindingReplyBody;
+	public ClientDeviceBindingReplyBody getMessageBody() {
+		return messageBody;
 	}
 
-	public void setClientDeviceBindingReplyBody(ClientDeviceBindingReplyBody clientDeviceBindingReplyBody) {
-		this.clientDeviceBindingReplyBody = clientDeviceBindingReplyBody;
+	public void setMessageBody(ClientDeviceBindingReplyBody messageBody) {
+		this.messageBody = messageBody;
 	}
+
+
 
 
 	

@@ -11,7 +11,7 @@ public class ClientInWareHouseMessageCodec implements MessageCodec{
 		JSONObject json= JSONObject.parseObject(inMsg);
 		
 		ClientInWareHouseMessage clientInWareHouseMessage= new ClientInWareHouseMessage();
-		clientInWareHouseMessage.setClientInWareHouseBody(json.getObject("messageBody",ClientInWareHouseBody.class));
+		clientInWareHouseMessage.setMessageBody(json.getObject("messageBody",ClientInWareHouseBody.class));
 		clientInWareHouseMessage.setServiceType(json.getString("serviceType"));
 		clientInWareHouseMessage.setFormatVersion(json.getString("formatVersion"));;
 		clientInWareHouseMessage.setDeviceType(json.getInteger("deviceType"));

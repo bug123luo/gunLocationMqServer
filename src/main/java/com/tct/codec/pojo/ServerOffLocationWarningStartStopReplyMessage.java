@@ -1,16 +1,17 @@
 package com.tct.codec.pojo;
 
 public class ServerOffLocationWarningStartStopReplyMessage extends SimpleMessage{
-	private ServerOffLocationWarningStartStopBody serverOffLocationWarningStartStopBody;
+	private ServerOffLocationWarningStartStopBody messageBody;
 
-	public ServerOffLocationWarningStartStopBody getServerOffLocationWarningStartStopBody() {
-		return serverOffLocationWarningStartStopBody;
+	public ServerOffLocationWarningStartStopBody getMessageBody() {
+		return messageBody;
 	}
 
-	public void setServerOffLocationWarningStartStopBody(
-			ServerOffLocationWarningStartStopBody serverOffLocationWarningStartStopBody) {
-		this.serverOffLocationWarningStartStopBody = serverOffLocationWarningStartStopBody;
+	public void setMessageBody(ServerOffLocationWarningStartStopBody messageBody) {
+		this.messageBody = messageBody;
 	}
+
+
 	
 	
 }

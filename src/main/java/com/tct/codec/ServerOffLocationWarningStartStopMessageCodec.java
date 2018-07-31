@@ -12,7 +12,7 @@ public class ServerOffLocationWarningStartStopMessageCodec implements MessageCod
 		
 		ServerOffLocationWarningStartStopMessage serverOffLocationWarningStartStopMessage = new ServerOffLocationWarningStartStopMessage();
 		
-		serverOffLocationWarningStartStopMessage.setServerOffLocationWarningStartStopBody(json.getObject("messageBody",ServerOffLocationWarningStartStopBody.class));
+		serverOffLocationWarningStartStopMessage.setMessageBody(json.getObject("messageBody",ServerOffLocationWarningStartStopBody.class));
 		serverOffLocationWarningStartStopMessage.setServiceType(json.getString("serviceType"));
 		serverOffLocationWarningStartStopMessage.setFormatVersion(json.getString("formatVersion"));
 		serverOffLocationWarningStartStopMessage.setDeviceType(json.getInteger("deviceType"));

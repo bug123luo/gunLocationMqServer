@@ -1,5 +1,5 @@
 package com.tct.service;
 
 public interface ServerInWareHouseService {
-	public void handleCodeMsg(Object msg) throws Exception;
+	public boolean handleCodeMsg(Object msg) throws Exception;
 }

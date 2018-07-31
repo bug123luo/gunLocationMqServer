@@ -5,6 +5,7 @@ public class ServerInWareHouseBody {
 	
 	private String bluetoothMac;
 	private String authCode;
+	private String deviceNo;
 	
 	public String getBluetoothMac() {
 		return bluetoothMac;
@@ -17,6 +18,12 @@ public class ServerInWareHouseBody {
 	}
 	public void setAuthCode(String authCode) {
 		this.authCode = authCode;
+	}
+	public String getDeviceNo() {
+		return deviceNo;
+	}
+	public void setDeviceNo(String deviceNo) {
+		this.deviceNo = deviceNo;
 	}
 	
 	

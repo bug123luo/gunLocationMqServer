@@ -11,8 +11,6 @@ import com.tct.cache.UnSendReplyMessageCache;
 import com.tct.cache.UnhandlerReceiveMessageCache;
 import com.tct.cache.UserOnlineQueueCache;
 import com.tct.codec.pojo.ServerOutWareHouseMessage;
-import com.tct.codec.pojo.ServerOutWareHouseReplyBody;
-import com.tct.codec.pojo.ServerOutWareHouseReplyMessage;
 import com.tct.dao.ServerOutWareHouseDao;
 import com.tct.po.DeviceGunCustom;
 import com.tct.po.DeviceGunQueryVo;
@@ -27,29 +25,58 @@ public class ServerOutWareHouseServiceImpl implements ServerOutWareHouseService 
 	ServerOutWareHouseDao serverOutWareHouseDao;
 	
 	@Override
-	public void handleCodeMsg(Object msg) throws Exception {
+	public boolean handleCodeMsg(Object msg) throws Exception {
 		ServerOutWareHouseMessage message = (ServerOutWareHouseMessage)msg;
 		
 		ConcurrentHashMap<String, Hashtable<String, Object>> unhandlerReceiveMessageHashMap = UnhandlerReceiveMessageCache.getUnSendReplyMessageMap();
 		ConcurrentHashMap<String, Hashtable<String, String>> userOnlineQueueHashMap = UserOnlineQueueCache.getOnlineUserQueueMap();
 		ConcurrentHashMap<String, Hashtable<String, Object>> unSendReplyMessageHashMap = UnSendReplyMessageCache.getUnSendReplyMessageMap();
-			
-		DeviceGunQueryVo deviceGunQueryVo = new DeviceGunQueryVo();
+		
+		//获取需要通知的终端的 deviceNo信息
+/*		DeviceGunQueryVo deviceGunQueryVo = new DeviceGunQueryVo();
 		DeviceGunCustom deviceGunCustom = new DeviceGunCustom();
 		deviceGunCustom.setGunMac(message.getServerOutWareHouseBody().getBluetoothMac());
 		deviceGunQueryVo.setDeviceGunCustom(deviceGunCustom);
-		DeviceGunCustom deviceGunCustom2 = serverOutWareHouseDao.selectByDeviceGunQueryVo(deviceGunQueryVo);
+		DeviceGunCustom deviceGunCustom2 = serverOutWareHouseDao.selectByDeviceGunQueryVo(deviceGunQueryVo);*/
 		
-		String outWareJson = JSONObject.toJSONString(message);
-
-		Hashtable<String, Object> tempUnSendReplyMessageMap = new Hashtable<String, Object>();
-		if(unhandlerReceiveMessageHashMap.containsKey(deviceGunCustom2.getDeviceNo())) {
-			tempUnSendReplyMessageMap = unhandlerReceiveMessageHashMap.get(deviceGunCustom2.getDeviceNo());
+		//创建发送到终端队列的队列名
+		Hashtable<String , String> userQueueMap=null;
+		if (userOnlineQueueHashMap.containsKey(message.getMessageBody().getDeviceNo())) {
+			userQueueMap=userOnlineQueueHashMap.get(message.getMessageBody().getDeviceNo());
+		}
+		if(userQueueMap==null) {
+			userQueueMap=new Hashtable<String,String>();
+		}
+		userQueueMap.put("sendQueue", message.getMessageBody().getDeviceNo());
+		
+		userOnlineQueueHashMap.put(message.getMessageBody().getDeviceNo(), userQueueMap);	
+		
+		//将接收到的消息放在本地的接收消息队列上
+		Hashtable<String, Object> messageMap=null;
+		if (unhandlerReceiveMessageHashMap.containsKey(message.getMessageBody().getDeviceNo())) {
+			messageMap= unhandlerReceiveMessageHashMap.get(message.getMessageBody().getDeviceNo());
+		}
+		if(messageMap ==null) {
+			messageMap=new Hashtable<String,Object>();
 		}
 		
-		tempUnSendReplyMessageMap.put(message.getSerialNumber(), outWareJson);
-		//将回应消息放入全局缓存
-		unSendReplyMessageHashMap.put(deviceGunCustom2.getDeviceNo(), tempUnSendReplyMessageMap);
+		messageMap.put("s"+message.getSerialNumber(), message);		
+		unhandlerReceiveMessageHashMap.put(message.getMessageBody().getDeviceNo(), messageMap);
+		
+		//发送到producer处理队列上
+		String outWareJson = JSONObject.toJSONString(message);
+
+		Hashtable<String, Object> tempUnSendReplyMessageMap = null;
+		if(unhandlerReceiveMessageHashMap.containsKey(message.getMessageBody().getDeviceNo())) {
+			tempUnSendReplyMessageMap = unhandlerReceiveMessageHashMap.get(message.getMessageBody().getDeviceNo());
+		}
+		if(tempUnSendReplyMessageMap==null) {
+			tempUnSendReplyMessageMap = new Hashtable<String, Object>();
+		}
+		tempUnSendReplyMessageMap.put("s"+message.getSerialNumber(), outWareJson);
+		unSendReplyMessageHashMap.put(message.getMessageBody().getDeviceNo(), tempUnSendReplyMessageMap);
+		
+		return true;
 	}
 
 }

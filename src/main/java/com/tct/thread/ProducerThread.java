@@ -2,8 +2,6 @@ package com.tct.thread;
 
 import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.jms.Connection;
@@ -15,6 +13,7 @@ import javax.jms.Session;
 import javax.jms.TextMessage;
 
 import com.tct.cache.UnSendReplyMessageCache;
+import com.tct.cache.UnhandlerReceiveMessageCache;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -49,6 +48,7 @@ public class ProducerThread extends Thread {
 			while(true) {
 				
 				//从未发消息缓存队列中获取消息，并且构造json消息，将消息发送出去
+				ConcurrentHashMap<String, Hashtable<String, Object>> unhandlerReceiveMessageHashMap = UnhandlerReceiveMessageCache.getUnSendReplyMessageMap();
 				ConcurrentHashMap<String, Hashtable<String, Object>> unSendReplyMessageCacheMap = UnSendReplyMessageCache.getUnSendReplyMessageMap();
 				
 				for(String deviceNo:unSendReplyMessageCacheMap.keySet()) {	
@@ -61,9 +61,15 @@ public class ProducerThread extends Thread {
 						TextMessage message = session.createTextMessage(jsonMsg);
 						producer.send(message);
 						unSendMessageMap.remove(serialNumber);
-					}
-					
-					session.commit();
+						
+						session.commit();
+						
+						Hashtable<String, Object> messageMap=new Hashtable<String,Object>();
+						if (unhandlerReceiveMessageHashMap.containsKey(deviceNo)){
+							messageMap= unhandlerReceiveMessageHashMap.get(deviceNo);
+							messageMap.remove(serialNumber);
+						}
+					}	
 				}	
 			}
 					

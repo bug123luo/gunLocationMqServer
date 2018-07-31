@@ -12,7 +12,7 @@ public class ServerOffLocationSearchMessageCodec implements MessageCodec {
 		JSONObject json= JSONObject.parseObject(inMsg);
 		
 		ServerOffLocationSearchMessage serverOffLocationSearchMessage = new ServerOffLocationSearchMessage();
-		serverOffLocationSearchMessage.setServerOffLocationSearchBody(json.getObject("messageBody",ServerOffLocationSearchBody.class));
+		serverOffLocationSearchMessage.setMessageBody(json.getObject("messageBody",ServerOffLocationSearchBody.class));
 		serverOffLocationSearchMessage.setServiceType(json.getString("serviceType"));
 		serverOffLocationSearchMessage.setFormatVersion(json.getString("formatVersion"));
 		serverOffLocationSearchMessage.setDeviceType(json.getInteger("deviceType"));

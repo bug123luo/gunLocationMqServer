@@ -58,12 +58,12 @@ public class GateWayConsumerThread extends Thread{
 						messageCodec = messageCodecSelector.getMessageDecode(textMessage.getText());
 					} catch (Exception e2) {
 						log.debug(e2+"消息解码器不存在");
+						session.commit();
 					}
 					
 					//业务处理选择器
 					ServiceSelector serviceSelector = new ServiceSelector();
-					
-					serviceSelector.handlerService(messageCodec, textMessage);
+					boolean flag = serviceSelector.handlerService(messageCodec, textMessage);
 			
 					try {
 						session.commit();

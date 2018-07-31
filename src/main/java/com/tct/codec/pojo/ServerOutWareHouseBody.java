@@ -1,22 +1,41 @@
 package com.tct.codec.pojo;
 
 public class ServerOutWareHouseBody{
+	//预留
 	private String reserve;
+	//枪支id
 	private String bluetoothMac;
+	//枪号
 	private String gunTag;
+	//领用时间
 	private String applyTime;
+	//归还截止时间
 	private String deadlineTime;
+	//电量报警级别
 	private String powerAlarmLevel;
+	//发射功率
 	private String transmittingPower;
+	//广播间隔
 	private String broadcastInterval;
-	private String conncetionInterval;
+	//连接间隔
+	private String connectionInterval;
+	//连接超时
 	private String connectionTimeout;
-	private String softwareversiion;
+	//软硬件版本
+	private String softwareversion;
+	//心跳间隔
 	private String heartbeat;
+	//
 	private String powerSampling;
+	//系统时间
 	private String systemTime;
+	//匹配最大时间:随行设备匹配最大时间（绑定超时）
 	private String matchTime;
+	//安全字
 	private String safeCode;
+	//警员编号
+	private String deviceNo;
+	
 	public String getReserve() {
 		return reserve;
 	}
@@ -65,24 +84,14 @@ public class ServerOutWareHouseBody{
 	public void setBroadcastInterval(String broadcastInterval) {
 		this.broadcastInterval = broadcastInterval;
 	}
-	public String getConncetionInterval() {
-		return conncetionInterval;
-	}
-	public void setConncetionInterval(String conncetionInterval) {
-		this.conncetionInterval = conncetionInterval;
-	}
+
 	public String getConnectionTimeout() {
 		return connectionTimeout;
 	}
 	public void setConnectionTimeout(String connectionTimeout) {
 		this.connectionTimeout = connectionTimeout;
 	}
-	public String getSoftwareversiion() {
-		return softwareversiion;
-	}
-	public void setSoftwareversiion(String softwareversiion) {
-		this.softwareversiion = softwareversiion;
-	}
+
 	public String getHeartbeat() {
 		return heartbeat;
 	}
@@ -113,6 +122,25 @@ public class ServerOutWareHouseBody{
 	public void setSafeCode(String safeCode) {
 		this.safeCode = safeCode;
 	}
+	public String getConnectionInterval() {
+		return connectionInterval;
+	}
+	public void setConnectionInterval(String connectionInterval) {
+		this.connectionInterval = connectionInterval;
+	}
+	public String getSoftwareversion() {
+		return softwareversion;
+	}
+	public void setSoftwareversion(String softwareversion) {
+		this.softwareversion = softwareversion;
+	}
+	public String getDeviceNo() {
+		return deviceNo;
+	}
+	public void setDeviceNo(String deviceNo) {
+		this.deviceNo = deviceNo;
+	}
+
 	
 	
 }
