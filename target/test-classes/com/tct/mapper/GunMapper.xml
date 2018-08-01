@@ -7,7 +7,9 @@
     <result column="bluetooth_mac" jdbcType="VARCHAR" property="bluetoothMac" />
     <result column="warehouse_name" jdbcType="VARCHAR" property="warehouseName" />
     <result column="warehouse_id" jdbcType="INTEGER" property="warehouseId" />
+    <result column="bullet_number" jdbcType="INTEGER" property="bulletNumber" />
     <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="real_time_state" jdbcType="INTEGER" property="realTimeState" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="version" jdbcType="INTEGER" property="version" />
@@ -71,8 +73,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, gun_tag, bluetooth_mac, warehouse_name, warehouse_id, state, create_time, update_time, 
-    version
+    id, gun_tag, bluetooth_mac, warehouse_name, warehouse_id, bullet_number, state, real_time_state, 
+    create_time, update_time, version
   </sql>
   <select id="selectByExample" parameterType="com.tct.po.GunExample" resultMap="BaseResultMap">
     select
@@ -106,13 +108,13 @@
   </delete>
   <insert id="insert" parameterType="com.tct.po.Gun">
     insert into gun (id, gun_tag, bluetooth_mac, 
-      warehouse_name, warehouse_id, state, 
-      create_time, update_time, version
-      )
+      warehouse_name, warehouse_id, bullet_number, 
+      state, real_time_state, create_time, 
+      update_time, version)
     values (#{id,jdbcType=INTEGER}, #{gunTag,jdbcType=VARCHAR}, #{bluetoothMac,jdbcType=VARCHAR}, 
-      #{warehouseName,jdbcType=VARCHAR}, #{warehouseId,jdbcType=INTEGER}, #{state,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER}
-      )
+      #{warehouseName,jdbcType=VARCHAR}, #{warehouseId,jdbcType=INTEGER}, #{bulletNumber,jdbcType=INTEGER}, 
+      #{state,jdbcType=INTEGER}, #{realTimeState,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.tct.po.Gun">
     insert into gun
@@ -132,8 +134,14 @@
       <if test="warehouseId != null">
         warehouse_id,
       </if>
+      <if test="bulletNumber != null">
+        bullet_number,
+      </if>
       <if test="state != null">
         state,
+      </if>
+      <if test="realTimeState != null">
+        real_time_state,
       </if>
       <if test="createTime != null">
         create_time,
@@ -161,8 +169,14 @@
       <if test="warehouseId != null">
         #{warehouseId,jdbcType=INTEGER},
       </if>
+      <if test="bulletNumber != null">
+        #{bulletNumber,jdbcType=INTEGER},
+      </if>
       <if test="state != null">
         #{state,jdbcType=INTEGER},
+      </if>
+      <if test="realTimeState != null">
+        #{realTimeState,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
@@ -199,8 +213,14 @@
       <if test="record.warehouseId != null">
         warehouse_id = #{record.warehouseId,jdbcType=INTEGER},
       </if>
+      <if test="record.bulletNumber != null">
+        bullet_number = #{record.bulletNumber,jdbcType=INTEGER},
+      </if>
       <if test="record.state != null">
         state = #{record.state,jdbcType=INTEGER},
+      </if>
+      <if test="record.realTimeState != null">
+        real_time_state = #{record.realTimeState,jdbcType=INTEGER},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -223,7 +243,9 @@
       bluetooth_mac = #{record.bluetoothMac,jdbcType=VARCHAR},
       warehouse_name = #{record.warehouseName,jdbcType=VARCHAR},
       warehouse_id = #{record.warehouseId,jdbcType=INTEGER},
+      bullet_number = #{record.bulletNumber,jdbcType=INTEGER},
       state = #{record.state,jdbcType=INTEGER},
+      real_time_state = #{record.realTimeState,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       version = #{record.version,jdbcType=INTEGER}
@@ -246,8 +268,14 @@
       <if test="warehouseId != null">
         warehouse_id = #{warehouseId,jdbcType=INTEGER},
       </if>
+      <if test="bulletNumber != null">
+        bullet_number = #{bulletNumber,jdbcType=INTEGER},
+      </if>
       <if test="state != null">
         state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="realTimeState != null">
+        real_time_state = #{realTimeState,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -267,7 +295,9 @@
       bluetooth_mac = #{bluetoothMac,jdbcType=VARCHAR},
       warehouse_name = #{warehouseName,jdbcType=VARCHAR},
       warehouse_id = #{warehouseId,jdbcType=INTEGER},
+      bullet_number = #{bulletNumber,jdbcType=INTEGER},
       state = #{state,jdbcType=INTEGER},
+      real_time_state = #{realTimeState,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       version = #{version,jdbcType=INTEGER}

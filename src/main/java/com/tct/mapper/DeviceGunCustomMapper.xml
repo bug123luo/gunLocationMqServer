@@ -9,4 +9,12 @@
 			</if>
 		</where>
 	</select>
+	<select id="selectDeviceNoByDeviceGunQueryVo" parameterType="com.tct.po.DeviceGunQueryVo" resultType="com.tct.po.DeviceGunCustom">
+		SELECT * FROM device_gun
+		<where>
+			<if test="deviceGunCustom!=null and deviceGunCustom.gunMac !=null">
+				gun_mac=#{deviceGunCustom.gunMac} AND state=0
+			</if>
+		</where>
+	</select>
 </mapper>

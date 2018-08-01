@@ -8,7 +8,7 @@ public interface DeviceLocationCustomMapper {
 						 
 	DeviceLocationCustom selectByDeviceLocationQueryVo(DeviceLocationQueryVo deviceLocationQueryVo) throws Exception;
 	
-	public void insertSelective(DeviceLocationCustom deviceLocationCustom) throws Exception;
+	int insertSelective(DeviceLocationCustom deviceLocationCustom) throws Exception;
 	
 	int updateByPrimaryKeySelective(DeviceLocationCustom deviceLocationCustom) throws Exception;
 }

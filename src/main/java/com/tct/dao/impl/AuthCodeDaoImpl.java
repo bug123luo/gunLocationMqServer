@@ -17,6 +17,7 @@ import com.tct.po.DeviceCustom;
 import com.tct.po.DeviceLocationCustom;
 import com.tct.po.DeviceLocationQueryVo;
 import com.tct.po.DeviceQueryVo;
+import com.tct.util.StringUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -41,18 +42,8 @@ public class AuthCodeDaoImpl implements AuthCodeDao{
 		DeviceCustom deviceCustom = new DeviceCustom(); 
 		Integer deviceId = null;
 		
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		
-		Date date=null;
-		try {
-			String tempdate=message.getSendTime();
-			String pString = tempdate.substring(0, 4)+"-"+tempdate.substring(4,6)+"-"+tempdate.substring(6, 8)+" "+
-							tempdate.substring(8, 10)+":"+tempdate.substring(10,12)+":"+tempdate.substring(12, 14);
-			date = simpleDateFormat.parse(pString);
-		} catch (ParseException e1) {
-			log.debug("日期格式转换错误");
-		}
-		
+		Date date=StringUtil.getDate(message.getSendTime());
+
 		deviceCustom.setDeviceNo(deviceNo);
 		//deviceCustom.setDeviceName(message.getMessageBody().getUsername());
 		deviceQueryVo.setDeviceCustom(deviceCustom);
